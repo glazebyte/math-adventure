@@ -28,10 +28,10 @@ public class LoginController {
             System.out.println("berhasil login");
             if(userHolder.getLoggedInUser().isAdmin()){
                 System.out.println("login sebagai admin");
-                App.setRoot("primary");
+                App.setRoot("dashboard");
             }else{
                 System.out.println("loggin sebagai user");
-                App.setRoot("secondary");
+                App.setRoot("game_view");
             }
         }else{
             System.out.println("invalid username or password");

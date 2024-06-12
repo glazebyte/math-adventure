@@ -30,7 +30,7 @@
     -fx-background-radius : 20px;
 }
 .background_soal{
-    -fx-background-image : url('gambar/BGsoal.png');
+    -fx-background-color : linear-gradient(to top right, #eca761, #9a6d40)
 }
 .background_header{
     -fx-background-color : transparent;
