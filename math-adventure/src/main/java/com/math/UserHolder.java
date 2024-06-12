@@ -1,21 +1,29 @@
 package com.math;
 
-public final class UserHolder {
-  
-    private User user;
-    private final static UserHolder instance = new UserHolder();
-    
-    private UserHolder() {}
-    
-    public static UserHolder getInstance() {
-      return instance;
+public class UserHolder {
+    private static UserHolder instance;
+    private User loggedInUser;
+
+    private UserHolder() {
+        // private constructor to prevent instantiation
     }
-    
-    public void setUser(User u) {
-      this.user = u;
+
+    public static synchronized UserHolder getInstance() {
+        if (instance == null) {
+            instance = new UserHolder();
+        }
+        return instance;
     }
-    
-    public User getUser() {
-      return this.user;
+
+    public User getLoggedInUser() {
+        return loggedInUser;
     }
-  }
+
+    public void setLoggedInUser(User user) {
+        this.loggedInUser = user;
+    }
+
+    public void clearLoggedInUser() {
+        this.loggedInUser = null;
+    }
+}

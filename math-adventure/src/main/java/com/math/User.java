@@ -2,7 +2,6 @@ package com.math;
 
 public class User {
     private String username;
-    private String passsword;
     private boolean admin;
     public User(String username,boolean admin){
         this.username=username;

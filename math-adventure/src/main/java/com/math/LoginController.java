@@ -20,14 +20,21 @@ public class LoginController {
 
         System.out.println(name);
 
-        User user = AppData.LoginUser(name, pass);
+        User loggedInUser = AppData.LoginUser(name, pass);
 
-        if(user.isAdmin()){
-            App.setRoot("primary");
-        }else if(!user.isAdmin()){
-            App.setRoot("secondary");
+        if(loggedInUser != null){
+            UserHolder userHolder = UserHolder.getInstance();
+            userHolder.setLoggedInUser(loggedInUser);
+            System.out.println("berhasil login");
+            if(userHolder.getLoggedInUser().isAdmin()){
+                System.out.println("login sebagai admin");
+                App.setRoot("primary");
+            }else{
+                System.out.println("loggin sebagai user");
+                App.setRoot("secondary");
+            }
         }else{
-            System.out.println("Invalid username or password.");
+            System.out.println("invalid username or password");
         }
     }
 }
