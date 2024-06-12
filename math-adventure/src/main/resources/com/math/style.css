@@ -1,3 +1,6 @@
-.backgroundimg{
+.background_siswa{
     -fx-background-image : url('gambar/Siswa.png');
+}
+.background_admin{
+    -fx-background-image : url('gambar/Admin.png');
 }
