@@ -4,3 +4,59 @@
 .background_admin{
     -fx-background-image : url('gambar/Admin.png');
 }
+.left_panel{
+    -fx-background-color : #D9D9D9;
+}
+.button_left_panel{
+    -fx-background-radius : 5px;
+    -fx-background-color : #D9D9D9;
+}
+/* .button_left_panel> .imageview{
+        -fx-image : url('gambar/icon_stage.png');
+} */
+.button_left_panel:hover{
+    -fx-background-color : #FF5C00;
+    -fx-text-fill : #ffffff;
+}
+.button_left_panel:pressed{
+    -fx-background-color : #fd965b;
+    -fx-text-fill : #ffffff;
+}
+.background_dashboard{
+    -fx-background-image : url('gambar/BGDashboard.png')
+}
+.fotoprofile{
+    -fx-background-color : #FF5C00;
+    -fx-background-radius : 20px;
+}
+.background_soal{
+    -fx-background-image : url('gambar/BGsoal.png');
+}
+.background_header{
+    -fx-background-color : transparent;
+}
+.background_soaltp{
+    -fx-background : transparent;
+    -fx-background-color : transparent;
+}
+.button_pg{
+    -fx-background-color : #fd965b;
+    -fx-text-fill : #ffffff;
+    -fx-background-radius : 20px;
+}
+.button_pg:selected{
+    -fx-background-color : #FF5C00;  
+}
+.button_submit{
+    -fx-background-color : #ffffff;
+    -fx-text-fill : #000000;
+    -fx-background-radius : 25px;
+}
+.button_submit:hover{
+    -fx-background-color : #FF5C00;
+    -fx-text-fill : #ffffff;
+}
+.button_submit:pressed{
+    -fx-background-color : #fd965b;
+    
+}

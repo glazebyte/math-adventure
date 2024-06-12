@@ -14,15 +14,15 @@
    <center>
       <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" BorderPane.alignment="CENTER">
          <children>
-            <AnchorPane prefHeight="563.0" prefWidth="640.0" style="-fx-background-color: #9e9e9e; -fx-background-radius: 20px;">
+            <AnchorPane prefHeight="563.0" prefWidth="640.0" style="-fx-background-color: #A95B00; -fx-background-radius: 20px;">
                <children>
-                  <Text layoutX="241.0" layoutY="209.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username" />
+                  <Text fill="WHITE" layoutX="241.0" layoutY="209.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username" />
                   <TextField fx:id="username" layoutX="239.0" layoutY="214.0" />
                   <ButtonBar layoutX="173.0" layoutY="286.0" prefHeight="40.0" prefWidth="200.0" />
-                  <Text layoutX="243.0" layoutY="263.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" />
+                  <Text fill="WHITE" layoutX="243.0" layoutY="263.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" />
                   <PasswordField fx:id="password" layoutX="239.0" layoutY="267.0" />
                   <Button fx:id="login_button" layoutX="290.0" layoutY="313.0" mnemonicParsing="false" onAction="#switchToMain" text="Login" />
-                  <Text layoutX="229.0" layoutY="172.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Math Adventure">
+                  <Text fill="WHITE" layoutX="229.0" layoutY="172.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Math Adventure">
                      <font>
                         <Font name="System Bold" size="24.0" />
                      </font>
