@@ -93,3 +93,14 @@
 .button_game_type:pressed{
     -fx-background-opacity : 0.5;
 }
+.popup{
+    -fx-background-color : #A87645;
+    -fx-background-radius : 20px;
+}
+.transparent{
+    -fx-background-color : transparent;
+}
+.popup_button{
+    -fx-background-radius : 20px;
+    -fx-background-color : #CCA05A;
+}

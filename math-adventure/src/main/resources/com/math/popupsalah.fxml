@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DialogPane?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<DialogPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="500.0" styleClass="transparent" stylesheets="@style.css" xmlns="http://javafx.com/javafx/17.0.0" xmlns:fx="http://javafx.com/fxml/1">
+   <content>
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="204.0" prefWidth="500.0" styleClass="popup" stylesheets="@style.css">
+         <children>
+            <Text fill="WHITE" layoutX="192.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Yahhh...." textAlignment="CENTER" wrappingWidth="113.91717529296875">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="141.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Jawaban anda salah " textAlignment="CENTER">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <Button layoutX="359.0" layoutY="124.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="112.0" styleClass="popup_button" stylesheets="@style.css" text="Kembali ke soal" textAlignment="CENTER" textOverrun="CLIP">
+               <effect>
+                  <InnerShadow height="9.3" radius="2.41" width="2.34" />
+               </effect>
+            </Button>
+         </children>
+         <effect>
+            <InnerShadow>
+               <color>
+                  <Color red="0.42105263471603394" green="0.22768031060695648" blue="0.22768031060695648" />
+               </color>
+            </InnerShadow>
+         </effect>
+      </AnchorPane>
+   </content>
+</DialogPane>
