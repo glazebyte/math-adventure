@@ -61,11 +61,19 @@ public class GameViewController {
             }
         }else if(currentQuestion.getQuestionType()==2){
             try {
-                fxmlLoader.setLocation(getClass().getResource("multiple_choice.fxml"));
-                AnchorPane isiangandapPane = fxmlLoader.load();
-                MultipleChoiceController soalController = fxmlLoader.getController();
+                fxmlLoader.setLocation(getClass().getResource("essay.fxml"));
+                AnchorPane essayPane = fxmlLoader.load();
+                EssayController soalController = fxmlLoader.getController();
                 soalController.setData(currentQuestion);
-                center_pane.setContent(isiangandapPane);
+                soalController.answerButtonProperty().setOnAction(event->{
+                    currentAnswer = soalController.textfieldProperty().getText();
+                    if(checkAnswer()){
+                        fade(essayPane);
+                        toNextQuestion();
+                    }
+
+                });
+                center_pane.setContent(essayPane);
             } catch (Exception e) {
                 e.printStackTrace();
             }
