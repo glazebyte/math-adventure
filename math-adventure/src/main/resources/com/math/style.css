@@ -52,7 +52,7 @@
     -fx-text-fill : #000000;
     -fx-border-color : #FF5C00;
     -fx-background-radius : 25px;
-    -fx-border-width: 7px;
+    -fx-border-width: 5px;
     -fx-border-radius : 25px;
 }  
 .button_submit:hover{
@@ -117,4 +117,7 @@
     -fx-background-color : #ff4800;
     -fx-background-radius : 20px;
     -fx-text-fill : #ffffff;
+}
+.input_form{
+    -fx-background-radius: 14px;
 }

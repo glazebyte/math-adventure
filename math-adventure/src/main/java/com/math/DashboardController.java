@@ -1,9 +1,12 @@
 package com.math;
 
+import java.io.IOException;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -31,7 +34,21 @@ public class DashboardController {
 
     ObservableList <Question> questions =FXCollections.observableArrayList();
 
+    @FXML
+    private Button create_button;
+
+    @FXML
+    private Button logout_button;
+
+    private UserHolder userHolder = UserHolder.getInstance();
+
     public void initialize(){
+        setTable();
+        create_button.setOnAction(event->showQuestionForm());
+        logout_button.setOnAction(event->logout());
+    }
+
+    private void setTable(){
         AppData.getSoalList(questions);
         choice_answer_column.setCellValueFactory(new PropertyValueFactory<Question,String>("AnswerPg"));
         essay_answer_column.setCellValueFactory(new PropertyValueFactory<Question,String>("AnswerEssay"));
@@ -42,5 +59,18 @@ public class DashboardController {
         question_column.setCellValueFactory(new PropertyValueFactory<Question,String>("QuestionString"));
         type_column.setCellValueFactory(new PropertyValueFactory<Question,Integer>("QuestionType"));
         question_table.setItems(questions);
+    }
+
+    private void showQuestionForm(){
+        // FXMLLoader fxmlLoader = new FXMLLoader();
+    }
+
+    private void logout(){
+        userHolder.clearLoggedInUser();
+        try {
+            App.setRoot("login");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -39,7 +39,7 @@
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="190.0" styleClass="button_left_panel" stylesheets="@style.css" text="Log Out">
+            <Button fx:id="logout_button" mnemonicParsing="false" prefHeight="40.0" prefWidth="190.0" styleClass="button_left_panel" stylesheets="@style.css" text="Log Out">
                <font>
                   <Font size="18.0" />
                </font>
@@ -53,11 +53,11 @@
    <center>
       <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" styleClass="background_soal" stylesheets="@style.css" BorderPane.alignment="CENTER">
          <children>
-            <HBox prefHeight="83.0" prefWidth="1080.0" styleClass="background_header" stylesheets="@style.css">
+            <HBox alignment="TOP_RIGHT" prefHeight="83.0" prefWidth="1080.0" styleClass="background_header" stylesheets="@style.css">
                <children>
                   <HBox prefHeight="50.0" prefWidth="200.0" styleClass="fotoprofile" stylesheets="@style.css">
                      <HBox.margin>
-                        <Insets bottom="20.0" left="850.0" right="10.0" top="20.0" />
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                      </HBox.margin>
                      <children>
                         <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">

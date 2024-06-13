@@ -86,7 +86,7 @@ public class AppData {
         Connection conn = connect();
         try {
             var stmt = conn.createStatement();
-            String sql= "SELECT * FROM Soal_Matematika  WHERE tipe_soal=1 ORDER BY RAND()";
+            String sql= "SELECT * FROM Soal_Matematika  ORDER BY RAND()";
             var result = stmt.executeQuery(sql);
             Question question = null;
             while (result.next()) {

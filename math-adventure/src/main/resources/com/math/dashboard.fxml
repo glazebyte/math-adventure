@@ -59,7 +59,7 @@
                   <Font size="16.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="190.0" styleClass="button_left_panel" stylesheets="@style.css" text="Log Out" textFill="#696f79">
+            <Button fx:id="logout_button" mnemonicParsing="false" prefHeight="40.0" prefWidth="190.0" styleClass="button_left_panel" stylesheets="@style.css" text="Log Out" textFill="#696f79">
                <VBox.margin>
                   <Insets bottom="5.0" left="5.0" top="520.0" />
                </VBox.margin>
@@ -81,7 +81,7 @@
             <TableColumn fx:id="essay_answer_column" prefWidth="100.0" text="Jawaban Essay" />
         </columns>
       </TableView>
-      <Button layoutX="384.0" layoutY="706.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="143.0" styleClass="button_left_panel" stylesheets="@style.css" text="Create">
+      <Button fx:id="create_button" layoutX="384.0" layoutY="706.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="143.0" styleClass="button_left_panel" stylesheets="@style.css" text="Create">
          <font>
             <Font size="22.0" />
          </font>

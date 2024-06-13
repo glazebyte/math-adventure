@@ -5,26 +5,44 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javafx.animation.FadeTransition;
+import javafx.animation.PauseTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
 import javafx.scene.Node;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 
 public class GameViewController {
 
     @FXML
     private ScrollPane center_pane;
+    @FXML
+    private Button logout_button;
     
     private List<Question> questions = new ArrayList<Question>();
     private int soalStage=1;
     private Question currentQuestion;
     private String currentAnswer;
 
+    private Media bgm = new Media(getClass().getResource("sounds/bgm.mp3").toExternalForm());
+    private MediaPlayer bgmPlayer = new MediaPlayer(bgm);
+    private Media correctSound = new Media(getClass().getResource("sounds/correct.mp3").toExternalForm());
+    private MediaPlayer correctPlayer = new MediaPlayer(correctSound);
+    private Media wrongSound = new Media(getClass().getResource("sounds/wrong.mp3").toExternalForm());
+    private MediaPlayer wrongPlayer = new MediaPlayer(wrongSound);
+    private UserHolder userHolder = UserHolder.getInstance();
+
     public void initialize(){
         AppData.getRandomQuestion(questions);
         showSoal(soalStage);
+        bgmPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+        bgmPlayer.play();
+
+        logout_button.setOnAction(event -> logout());
     }
 
     private void showSoal(int soalStage){
@@ -88,9 +106,11 @@ public class GameViewController {
 
         if(correct){
             System.out.println("benar");
+            playCorrectSound();
         }
         else{
             System.out.println("salah");
+            playWrongSound();
         }
         return correct;
     }
@@ -104,5 +124,31 @@ public class GameViewController {
     private void toNextQuestion(){
         soalStage++;
         showSoal(soalStage);
+    }
+
+    private void playCorrectSound(){
+        PauseTransition pause = new PauseTransition(Duration.seconds(2));
+        bgmPlayer.pause();
+        correctPlayer.play();
+        pause.setOnFinished(event -> {correctPlayer.stop();bgmPlayer.play();});
+        pause.play();
+    }
+
+    private void playWrongSound(){
+        PauseTransition pause = new PauseTransition(Duration.seconds(3));
+        bgmPlayer.pause();
+        wrongPlayer.play();
+        pause.setOnFinished(event -> {wrongPlayer.stop();bgmPlayer.play();});
+        pause.play();
+    }
+    private void logout() {
+        userHolder.clearLoggedInUser();
+        bgmPlayer.stop();
+        try {
+            App.setRoot("login");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        
     }
 }
