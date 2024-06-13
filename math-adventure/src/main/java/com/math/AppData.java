@@ -110,4 +110,37 @@ public class AppData {
             }
         }
     }
+    public static boolean insertQuestion(Question question){
+        boolean success = false;
+        Connection conn = connect();
+        try {
+            if(question.getQuestionType()==1){
+                String sql = "INSERT INTO Soal_Matematika (tipe_soal,pertanyaan,pilihan_a,pilihan_b,pilihan_c,jawaban_benar_pg) VALUES (?,?,?,?,?,?)";
+                PreparedStatement psmt = conn.prepareStatement(sql);
+                psmt.setInt(1,question.getQuestionType());
+                psmt.setString(2, question.getQuestionString());
+                psmt.setString(3, question.getOptionA());
+                psmt.setString(4, question.getOptionB());
+                psmt.setString(5, question.getOptionC());
+                psmt.setString(6, question.getAnswerPg());
+                int rowsInserted = psmt.executeUpdate();
+                if (rowsInserted > 0)
+                    System.out.println("A new question was inserted successfully!");
+                success = true;
+            }else if(question.getQuestionType()==2){
+                String sql = "INSERT INTO Soal_Matematika (tipe_soal,pertanyaan,jawaban_benar_essay) VALUES (?,?,?)";
+                PreparedStatement psmt = conn.prepareStatement(sql);
+                psmt.setInt(1,question.getQuestionType());
+                psmt.setString(2, question.getQuestionString());
+                psmt.setString(3, question.getAnswerEssay());
+                int rowsInserted = psmt.executeUpdate();
+                if(rowsInserted>0)
+                    System.out.println("A new question was inserted successfully!");
+                success = true;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return success;
+    }
 }

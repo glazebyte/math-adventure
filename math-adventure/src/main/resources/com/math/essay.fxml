@@ -30,9 +30,9 @@
             <Font size="24.0" />
          </font>
       </Button>
-      <TextField fx:id="answer_text" layoutX="93.0" layoutY="599.0" prefHeight="41.0" prefWidth="369.0" promptText="Jawab Disini...">
+      <TextField fx:id="answer_text" layoutX="93.0" layoutY="599.0" prefHeight="11.0" prefWidth="369.0" promptText="Jawab Disini..." styleClass="input_form" stylesheets="@style.css">
          <font>
-            <Font size="14.0" />
+            <Font size="20.0" />
          </font>
       </TextField>
    </children>

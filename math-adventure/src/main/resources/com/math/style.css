@@ -121,3 +121,10 @@
 .input_form{
     -fx-background-radius: 14px;
 }
+.form_exit{
+    -fx-background-color:  #8f8585 ;
+    -fx-background-radius : 20px;
+}
+.form_exit:pressed{
+    -fx-background-color:  #beb0b0 ;
+}
