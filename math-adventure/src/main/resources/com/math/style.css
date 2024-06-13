@@ -58,5 +58,26 @@
 }
 .button_submit:pressed{
     -fx-background-color : #fd965b;
-    
+}
+.background_game_select{
+    -fx-background-color : #FFB469;
+    -fx-background-radius : 20px;
+}
+.button_game_select{
+    -fx-background-color : #A95B00;
+    -fx-background-radius : 10px;
+    -fx-text-fill : #ffffff;
+}
+.button_game_select:hover{
+    -fx-background-color :#fd965b;
+    -fx-text-fill : #ffffff;
+}
+.button_game_select:pressed{
+    -fx-text-fill : #000000;
+}
+
+.headaer_game_select{
+    -fx-background-color : #A95B00;
+    -fx-background-radius : 30px;
+    -fx-text-fill : #ffffff;
 }
