@@ -50,8 +50,11 @@
 .button_submit{
     -fx-background-color : #ffffff;
     -fx-text-fill : #000000;
+    -fx-border-color : #FF5C00;
     -fx-background-radius : 25px;
-}
+    -fx-border-width: 7px;
+    -fx-border-radius : 25px;
+}  
 .button_submit:hover{
     -fx-background-color : #FF5C00;
     -fx-text-fill : #ffffff;
@@ -104,3 +107,8 @@
     -fx-background-radius : 20px;
     -fx-background-color : #CCA05A;
 }
+.button_form{
+    -fx-background-color : #ffffff;
+    -fx-text-fill : #000000;
+    -fx-border-color : #000000;
+} 
