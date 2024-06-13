@@ -81,3 +81,15 @@
     -fx-background-radius : 30px;
     -fx-text-fill : #ffffff;
 }
+.button_game_type{
+    -fx-background-color : transparent;
+    -fx-text-fill : #ffffff;
+    -fx-border-color : #ffffff;
+}    
+.button_game_type:hover{
+    -fx-background-color : #F9E6B4;
+    -fx-background-opacity : 0.2;
+}
+.button_game_type:pressed{
+    -fx-background-opacity : 0.5;
+}
