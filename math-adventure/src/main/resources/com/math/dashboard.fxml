@@ -69,16 +69,16 @@
             </Button>
          </children>
       </VBox>
-      <TableView layoutX="290.0" layoutY="160.0" prefHeight="511.0" prefWidth="830.0">
+      <TableView fx:id="question_table" layoutX="290.0" layoutY="160.0" prefHeight="511.0" prefWidth="830.0">
         <columns>
-          <TableColumn prefWidth="50.0" text="ID" />
-          <TableColumn prefWidth="75.0" text="Type Soal" />
-            <TableColumn prefWidth="300.0" text="Pertanyaan" />
-            <TableColumn prefWidth="75.0" text="Pilihan A" />
-            <TableColumn prefWidth="75.0" text="Pilihan B" />
-            <TableColumn prefWidth="75.0" text="Pilihan C" />
-            <TableColumn prefWidth="75.0" text="Jawaban PG" />
-            <TableColumn prefWidth="100.0" text="Jawaban Essay" />
+          <TableColumn fx:id="id_collumn" prefWidth="50.0" text="ID" />
+          <TableColumn fx:id="type_column" prefWidth="75.0" text="Type Soal" />
+            <TableColumn fx:id="question_column" prefWidth="300.0" text="Pertanyaan" />
+            <TableColumn fx:id="optionA_column" prefWidth="75.0" text="Pilihan A" />
+            <TableColumn fx:id="optionB_column" prefWidth="75.0" text="Pilihan B" />
+            <TableColumn fx:id="optionC_column" prefWidth="75.0" text="Pilihan C" />
+            <TableColumn fx:id="choice_answer_column" prefWidth="75.0" text="Jawaban PG" />
+            <TableColumn fx:id="essay_answer_column" prefWidth="100.0" text="Jawaban Essay" />
         </columns>
       </TableView>
       <Button layoutX="384.0" layoutY="706.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="143.0" styleClass="button_left_panel" stylesheets="@style.css" text="Create">

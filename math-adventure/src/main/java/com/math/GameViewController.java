@@ -4,10 +4,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javafx.animation.FadeTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
+import javafx.util.Duration;
+import javafx.scene.Node;
 
 public class GameViewController {
 
@@ -20,14 +23,14 @@ public class GameViewController {
     private String currentAnswer;
 
     public void initialize(){
-        AppData.getSoalList(questions);
+        AppData.getRandomQuestion(questions);
         showSoal(soalStage);
     }
 
     private void showSoal(int soalStage){
         FXMLLoader fxmlLoader = new FXMLLoader();
         currentQuestion = questions.get(soalStage);
-        if(currentQuestion.getTypeSoal()==1){
+        if(currentQuestion.getQuestionType()==1){
             try {
                 fxmlLoader.setLocation(getClass().getResource("multiple_choice.fxml"));
                 AnchorPane multiChoicePane = fxmlLoader.load();
@@ -45,12 +48,18 @@ public class GameViewController {
                     currentAnswer = "c";
                     soalController.setSelected(false, false, true);
                 });
-                soalController.answerButtonProperty().setOnAction(event->checkAnswer());
+                soalController.answerButtonProperty().setOnAction(event->{
+                    if(checkAnswer()){
+                        fade(multiChoicePane);
+                        toNextQuestion();
+                    }
+
+                });
                 center_pane.setContent(multiChoicePane);
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        }else if(currentQuestion.getTypeSoal()==2){
+        }else if(currentQuestion.getQuestionType()==2){
             try {
                 fxmlLoader.setLocation(getClass().getResource("multiple_choice.fxml"));
                 AnchorPane isiangandapPane = fxmlLoader.load();
@@ -64,15 +73,28 @@ public class GameViewController {
     }
     private boolean checkAnswer(){
         boolean correct = false;
-        if(currentQuestion.getTypeSoal()==1)
+        if(currentQuestion.getQuestionType()==1)
             correct = currentQuestion.getAnswerPg().equals(currentAnswer);
-        else if(currentQuestion.getTypeSoal() == 2)
+        else if(currentQuestion.getQuestionType() == 2)
             correct = currentQuestion.getAnswerEssay().equals(currentAnswer);
 
-        if(correct)
+        if(correct){
             System.out.println("benar");
-        else
+        }
+        else{
             System.out.println("salah");
+        }
         return correct;
+    }
+    private void fade(Node node){
+        FadeTransition fadeTransition = new FadeTransition(Duration.millis(500));
+        fadeTransition.setNode(node);
+        fadeTransition.setFromValue(1.0);
+        fadeTransition.setToValue(0.1);
+        fadeTransition.play();
+    }
+    private void toNextQuestion(){
+        soalStage++;
+        showSoal(soalStage);
     }
 }

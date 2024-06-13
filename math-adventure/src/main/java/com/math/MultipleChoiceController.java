@@ -31,7 +31,7 @@ public class MultipleChoiceController {
         button_c.pseudoClassStateChanged(PseudoClass.getPseudoClass("selected"), button_3);
     }
     public void setData(Question soal){
-        text_soal.setText(soal.getQuesionString());
+        text_soal.setText(soal.getQuestionString());
         button_a.setText("A. "+soal.getOptionA());
         button_b.setText("B. "+soal.getOptionB());
         button_c.setText("C. "+soal.getOptionC());

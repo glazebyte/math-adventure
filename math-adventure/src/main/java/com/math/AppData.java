@@ -57,15 +57,44 @@ public class AppData {
         Connection conn = connect();
         try {
             var stmt = conn.createStatement();
-            String sql= "SELECT * FROM Soal_Matematika WHERE tipe_soal=1 ORDER BY RAND()";
+            String sql= "SELECT * FROM Soal_Matematika";
             var result = stmt.executeQuery(sql);
             Question question = null;
             while (result.next()) {
                 int type = result.getInt("tipe_soal");
                 if(type ==1 ){
-                    question = new Question(result.getString("pertanyaan"),result.getString("pilihan_a"),result.getString("pilihan_b"),result.getString("pilihan_c"),result.getString("jawaban_benar_pg"));
+                    question = new Question(result.getInt("id"),result.getString("pertanyaan"),result.getString("pilihan_a"),result.getString("pilihan_b"),result.getString("pilihan_c"),result.getString("jawaban_benar_pg"));
                 }else if(type == 2){
-                    question = new Question(result.getString("pertanyaan"), result.getString("jawaban_benar_essay"));
+                    question = new Question(result.getInt("id"),result.getString("pertanyaan"), result.getString("jawaban_benar_essay"));
+                }
+                questions.add(question);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            System.out.println("failed to get data");
+        }finally {
+            try {
+                if(conn != null)
+                    conn.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+    public static void getRandomQuestion(List<Question> questions){
+        questions.removeAll(questions);
+        Connection conn = connect();
+        try {
+            var stmt = conn.createStatement();
+            String sql= "SELECT * FROM Soal_Matematika  WHERE tipe_soal=1 ORDER BY RAND()";
+            var result = stmt.executeQuery(sql);
+            Question question = null;
+            while (result.next()) {
+                int type = result.getInt("tipe_soal");
+                if(type ==1 ){
+                    question = new Question(result.getInt("id"),result.getString("pertanyaan"),result.getString("pilihan_a"),result.getString("pilihan_b"),result.getString("pilihan_c"),result.getString("jawaban_benar_pg"));
+                }else if(type == 2){
+                    question = new Question(result.getInt("id"),result.getString("pertanyaan"), result.getString("jawaban_benar_essay"));
                 }
                 questions.add(question);
             }

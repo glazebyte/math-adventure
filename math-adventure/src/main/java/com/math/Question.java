@@ -1,7 +1,8 @@
 package com.math;
 
 public class Question {
-    private int type_soal;
+    private int question_id;
+    private int question_type;
     private String questionString;
     private String option_a;
     private String option_b;
@@ -9,25 +10,27 @@ public class Question {
     private String answer_pg;
     private String answer_essay;
 
-    public Question(String soalString,String option_a,String option_b,String option_c,String answer_pg){
-        this.questionString = soalString;
+    public Question(int question_id,String questionString,String option_a,String option_b,String option_c,String answer_pg){
+        this.question_id=question_id;
+        this.questionString = questionString;
         this.option_a = option_a;
         this.option_b = option_b;
         this.option_c = option_c;
         this.answer_pg = answer_pg;
-        this.type_soal = 1;
+        this.question_type = 1;
     }
-    public Question(String soalString,String answer_essay){
+    public Question(int question_id,String soalString,String answer_essay){
+        this.question_id=question_id;
         this.questionString = soalString;
         this.answer_essay = answer_essay;
-        this.type_soal =2;
+        this.question_type =2;
     }
 
-    public int getTypeSoal() {
-        return type_soal;
+    public int getQuestionType() {
+        return question_type;
     }
 
-    public String getQuesionString() {
+    public String getQuestionString() {
         return questionString;
     }
 
@@ -49,6 +52,10 @@ public class Question {
 
     public String getAnswerEssay() {
         return answer_essay;
+    }
+
+    public Integer getQuestionId(){
+        return question_id;
     }
 
 }
