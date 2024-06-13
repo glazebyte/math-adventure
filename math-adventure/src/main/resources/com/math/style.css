@@ -51,9 +51,9 @@
     -fx-background-color : #ffffff;
     -fx-text-fill : #000000;
     -fx-border-color : #FF5C00;
-    -fx-background-radius : 25px;
+    -fx-background-radius : 24px;
     -fx-border-width: 5px;
-    -fx-border-radius : 25px;
+    -fx-border-radius : 22px;
 }  
 .button_submit:hover{
     -fx-background-color : #FF5C00;
