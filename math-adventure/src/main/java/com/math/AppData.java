@@ -17,7 +17,8 @@ public class AppData {
         try {
             conn = DriverManager.getConnection(db_url,dbuser,pass);
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
+            // System.out.println(e.getMessage());
+            System.out.println("tidak dapat terhubung dengan database\n cek user dan password mysql");
         }
         return conn;
     }
